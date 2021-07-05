@@ -8,16 +8,16 @@ def fib(n):
     return acc[0]
 
 num_prewarm = 1000;
-num_measurement = 10000;
+num_measurement = 50000;
 
 start = time.time()
 for i in range(num_prewarm):
   fib(1000)
 end = time.time()
-print("prewarm (ms/iteration): " + str((end - start) / num_prewarm))
+print("prewarm (ms/iteration): " + str((end - start) * 1000 / num_prewarm))
 
 start2 = time.time()
 for i in range(num_measurement):
   fib(1000)
 end2 = time.time()
-print("measurement (ms/iteration): " + str((end2 - start2) / num_measurement))
+print("measurement (ms/iteration): " + str((end2 - start2) * 1000 / num_measurement))
